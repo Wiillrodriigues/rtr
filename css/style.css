@@ -2,7 +2,7 @@
 :root {
     --primary: #ffc107;
     --secondary: #191C24;
-    --light: #6C7293;
+    --light: #fdfdff;
     --dark: #000000;
 }
 
@@ -62,20 +62,15 @@
 }
 
 
-/*** Navbar ***/
-.navbar .dropdown-toggle::after {
-    border: none;
-    content: "\f107";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    vertical-align: middle;
-    margin-left: 8px;
+/*** Navbar ***/.navbar .navbar-toggler {
+    border: none; /* Remove a borda do botão */
+    background: transparent; /* Torna o fundo do botão transparente */
 }
 
 .navbar .navbar-nav .nav-link {
     margin-right: 30px;
-    padding: 40px 0;
-    color: var(--light);
+    padding: 10px 0;
+    color: var(--dark);
     font-family: 'Oswald', sans-serif;
     font-size: 18px;
     font-weight: 600;
@@ -83,50 +78,48 @@
     outline: none;
 }
 
+.navbar .navbar-toggler-icon {
+    width: 30px; /* Ajusta a largura do ícone */
+    height: 3px; /* Ajusta a altura das listras */
+    background-color: black; /* Cor das listras */
+    position: relative; /* Para posicionar as listras */
+}
+
+.navbar .navbar-toggler-icon::before,
+.navbar .navbar-toggler-icon::after {
+    content: "";
+    display: block;
+    width: 100%; /* Largura total do ícone */
+    height: 3px; /* Altura das listras */
+    background-color: black; /* Cor das listras */
+    position: absolute; /* Posiciona as listras no botão */
+}
+
+.navbar .navbar-toggler-icon::before {
+    top: -8px; /* Ajusta a posição da primeira listra */
+}
+
+.navbar .navbar-toggler-icon::after {
+    top: 8px; /* Ajusta a posição da segunda listra */
+}
+
+.navbar {
+    background-color: rgb(255, 255, 255) !important; /* Cor de fundo da navbar */
+}
+
+.navbar .navbar-nav .nav-link {
+    color: var(--dark); /* Cor dos links da navbar */
+}
+
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
-    color: var(--primary);
+    color: var(--primary); /* Cor dos links ao passar o mouse ou ativo */
 }
 
-.navbar.sticky-top {
-    top: -100px;
-    transition: .5s;
-}
-
-@media (max-width: 991.98px) {
-    .navbar .navbar-nav .nav-link,
-    .navbar.shadow-sm .navbar-nav .nav-link {
-        margin-right: 0;
-        padding: 10px 0;
-    }
-
-    .navbar .navbar-nav {
-        margin-top: 8px;
-        border-top: 1px solid var(--light);
-    }
-}
-
-@media (min-width: 992px) {
-    .navbar.shadow-sm .navbar-nav .nav-link {
-        padding: 20px 0;
-    }
-
-    .navbar .nav-item .dropdown-menu {
-        display: block;
-        border: none;
-        margin-top: 0;
-        top: 150%;
-        opacity: 0;
-        visibility: hidden;
-        transition: .5s;
-    }
-
-    .navbar .nav-item:hover .dropdown-menu {
-        top: 100%;
-        visibility: visible;
-        transition: .5s;
-        opacity: 1;
-    }
+/* Remove qualquer sombra aplicada */
+.navbar .navbar-toggler,
+.navbar .navbar-toggler-icon {
+    box-shadow: none;
 }
 
 
@@ -382,4 +375,10 @@ img {
         box-shadow: none; /* Remove a sombra */
         filter: none; /* Remove qualquer filtro que possa estar aplicando sombra */
     }
+}
+
+
+
+.navbar {
+    background-color: rgb(255, 255, 255) !important;
 }
