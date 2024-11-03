@@ -382,3 +382,29 @@ img {
 .navbar {
     background-color: rgb(255, 255, 255) !important;
 }
+
+
+
+/* Estilo do botão do WhatsApp */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    font-size: 24px;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  .whatsapp-button:hover {
+    background-color: #20b858;
+  }
+  .whatsapp-button i {
+    font-size: 24px;
+  }

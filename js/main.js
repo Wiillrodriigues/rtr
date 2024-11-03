@@ -55,3 +55,34 @@
 })(jQuery);
 
 document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+
+function handleSubmit(event) {
+    event.preventDefault(); // Evita o envio do formulário padrão
+    var form = event.target;
+
+    // Envia o formulário via fetch
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+    })
+    .then(response => {
+        if (response.ok) {
+            // Mostra a mensagem de sucesso
+            document.getElementById('success-message').textContent = 'Mensagem enviada com sucesso!';
+            document.getElementById('success-message').style.display = 'block';
+
+            // Limpa os campos do formulário
+            form.reset();
+        } else {
+            document.getElementById('success-message').textContent = 'Erro ao enviar a mensagem. Tente novamente.';
+            document.getElementById('success-message').style.display = 'block';
+        }
+    })
+    .catch(error => {
+        document.getElementById('success-message').textContent = 'Erro ao enviar a mensagem. Tente novamente.';
+        document.getElementById('success-message').style.display = 'block';
+    });
+
+    return false; // Garante que o formulário não recarregue a página
+}
